@@ -25,6 +25,8 @@ class GameViewController: UIViewController {
     
     private lazy var referee = Referee(gameboard: self.gameboard)
     
+    private lazy var gameType: GameType = .playerComputer
+    
     override public func viewDidLoad() {
         super.viewDidLoad()
         self.goToFirstState()
@@ -36,6 +38,10 @@ class GameViewController: UIViewController {
                 self.goToNextState()
             }
         }
+    }
+    
+    public func setGameType(_ type: GameType) {
+        self.gameType = type
     }
     
     private func goToFirstState() {
@@ -52,13 +58,34 @@ class GameViewController: UIViewController {
             self.currentState = GameEndedState(winner: winner, gameViewController: self)
             return
         }
-        if let playerInputState = currentState as? PlayerInputState {
-            let player = playerInputState.player.next
-            self.currentState = PlayerInputState(player: player,
-                                                 markViewPrototype: player.markViewPrototype,
-                                                 gameViewController: self,
-                                                 gameboard: gameboard,
-                                                 gameboardView: gameboardView)
+        switch gameType {
+        case .playerComputer:
+            if let computerInputState = currentState as? ComputerInputState {
+                let player = computerInputState.player.next
+                self.currentState = PlayerInputState(player: player,
+                                                     markViewPrototype: player.markViewPrototype,
+                                                     gameViewController: self,
+                                                     gameboard: gameboard,
+                                                     gameboardView: gameboardView)
+                return;
+            }
+            if let playerInputState = currentState as? PlayerInputState {
+                let player = playerInputState.player.next
+                self.currentState = ComputerInputState(player: player,
+                                                     markViewPrototype: player.markViewPrototype,
+                                                     gameViewController: self,
+                                                     gameboard: gameboard,
+                                                     gameboardView: gameboardView)
+            }
+        case .doublePlayers:
+            if let playerInputState = currentState as? PlayerInputState {
+                let player = playerInputState.player.next
+                self.currentState = PlayerInputState(player: player,
+                                                     markViewPrototype: player.markViewPrototype,
+                                                     gameViewController: self,
+                                                     gameboard: gameboard,
+                                                     gameboardView: gameboardView)
+            }
         }
     }
     
@@ -69,5 +96,6 @@ class GameViewController: UIViewController {
         gameboard.clear()
         gameboardView.clear()
     }
+    
 }
 
