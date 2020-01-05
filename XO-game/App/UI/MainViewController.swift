@@ -18,6 +18,8 @@ class MainViewController: UIViewController {
             gameType = .doublePlayers
         case 1:
             gameType = .playerComputer
+        case 2:
+            gameType = .doublePlayersRandom
         default: break
         }
         goToGameController()

@@ -11,4 +11,5 @@ import Foundation
 enum GameType {
     case doublePlayers
     case playerComputer
+    case doublePlayersRandom
 }

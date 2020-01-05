@@ -12,16 +12,22 @@ public class ComputerInputState: PlayerInputState {
     
     override public func begin() {
         super.begin()
-        setRandomMark()
+        DispatchQueue.global().async {
+            self.setRandomMark()
+        }
     }
     
     private func setRandomMark() {
-        guard let gameboardView = gameboardView else { return }
-        while (!self.isCompleted) {
-            let column = Int.random(in: 0..<GameboardSize.columns)
-            let row = Int.random(in: 0..<GameboardSize.rows)
-            let position = GameboardPosition(column: column, row: row)
-            gameboardView.onSelectPosition?(position)
+        let column = Int.random(in: 0..<GameboardSize.columns)
+        let row = Int.random(in: 0..<GameboardSize.rows)
+        let position = GameboardPosition(column: column, row: row)
+        if (gameboardView!.canPlaceMarkView(at: position)) {
+            usleep(1_250_000)
+            DispatchQueue.main.async {
+                self.gameboardView?.onSelectPosition?(position)
+            }
+        } else {
+            setRandomMark()
         }
     }
     

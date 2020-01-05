@@ -41,13 +41,13 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FpC-lq-59T" customClass="GameboardView" customModule="XO_game" customModuleProvider="target">
                                         <rect key="frame" x="16" y="49" width="343" height="343"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="FpC-lq-59T" secondAttribute="height" id="j79-XI-cai"/>
                                         </constraints>
                                     </view>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="FpC-lq-59T" secondAttribute="trailing" constant="16" id="qTA-6g-kBz"/>
                                     <constraint firstItem="FpC-lq-59T" firstAttribute="centerY" secondItem="LYG-3D-cJV" secondAttribute="centerY" id="rtG-DT-ZNh"/>
@@ -61,7 +61,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
-                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="FlK-xv-cci" firstAttribute="top" secondItem="LYG-3D-cJV" secondAttribute="bottom" constant="22" id="7Cg-Od-ODs"/>
                             <constraint firstItem="5M8-Sh-pRf" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="AYe-Ek-i4a"/>
@@ -117,24 +117,33 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cy8-Y8-Y4Y">
-                                <rect key="frame" x="134.5" y="263.5" width="106" height="30"/>
-                                <state key="normal" title="Против игрока"/>
+                                <rect key="frame" x="103.5" y="263.5" width="168" height="30"/>
+                                <state key="normal" title="Игра с двумя игроками"/>
                                 <connections>
                                     <action selector="startGame:" destination="Bcs-yw-kYL" eventType="touchUpInside" id="1YZ-OZ-dka"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8gl-jS-nwb">
-                                <rect key="frame" x="115.5" y="318.5" width="144" height="30"/>
-                                <state key="normal" title="Против компьютера"/>
+                                <rect key="frame" x="97" y="318.5" width="181" height="30"/>
+                                <state key="normal" title="Игра против компьютера"/>
                                 <connections>
                                     <action selector="startGame:" destination="Bcs-yw-kYL" eventType="touchUpInside" id="rH5-5h-3N1"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gpq-yr-i08">
+                                <rect key="frame" x="135" y="373.5" width="105" height="30"/>
+                                <state key="normal" title="Игра в слепую"/>
+                                <connections>
+                                    <action selector="startGame:" destination="Bcs-yw-kYL" eventType="touchUpInside" id="aBX-3D-gCW"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="8gl-jS-nwb" firstAttribute="centerY" secondItem="3ps-nb-MeN" secondAttribute="centerY" id="503-Ki-ttN"/>
+                            <constraint firstItem="Gpq-yr-i08" firstAttribute="top" secondItem="8gl-jS-nwb" secondAttribute="bottom" constant="25" id="Btf-wh-P7h"/>
                             <constraint firstItem="8gl-jS-nwb" firstAttribute="top" secondItem="cy8-Y8-Y4Y" secondAttribute="bottom" constant="25" id="bZr-Z8-oor"/>
+                            <constraint firstItem="Gpq-yr-i08" firstAttribute="centerX" secondItem="3ps-nb-MeN" secondAttribute="centerX" id="bb8-yJ-mYB"/>
                             <constraint firstItem="8gl-jS-nwb" firstAttribute="centerX" secondItem="3ps-nb-MeN" secondAttribute="centerX" id="gnH-uc-oSt"/>
                             <constraint firstItem="cy8-Y8-Y4Y" firstAttribute="centerX" secondItem="3ps-nb-MeN" secondAttribute="centerX" id="zRQ-66-pZX"/>
                         </constraints>
