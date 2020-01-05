@@ -53,6 +53,59 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		577B8EA023C1616000417158 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				F874E4702224621100364CAE /* AppDelegate.swift */,
+				577B8EA523C1618800417158 /* BusinessLogic */,
+				F874E4E62225CB3F00364CAE /* Models */,
+				577B8EA423C1617E00417158 /* UI */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		577B8EA123C1616300417158 /* Environment */ = {
+			isa = PBXGroup;
+			children = (
+				F874E47C2224621300364CAE /* Info.plist */,
+			);
+			path = Environment;
+			sourceTree = "<group>";
+		};
+		577B8EA223C1616900417158 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				F874E4772224621300364CAE /* Assets.xcassets */,
+				F874E4792224621300364CAE /* LaunchScreen.storyboard */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		577B8EA323C1617000417158 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Core;
+			sourceTree = "<group>";
+		};
+		577B8EA423C1617E00417158 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				F874E4742224621100364CAE /* Main.storyboard */,
+				F874E4722224621100364CAE /* GameViewController.swift */,
+				F874E4E52225CB3100364CAE /* Views */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		577B8EA523C1618800417158 /* BusinessLogic */ = {
+			isa = PBXGroup;
+			children = (
+				F874E4F02225DFF700364CAE /* Referee.swift */,
+			);
+			path = BusinessLogic;
+			sourceTree = "<group>";
+		};
 		F874E4642224621100364CAE = {
 			isa = PBXGroup;
 			children = (
@@ -72,15 +125,10 @@
 		F874E46F2224621100364CAE /* XO-game */ = {
 			isa = PBXGroup;
 			children = (
-				F874E4702224621100364CAE /* AppDelegate.swift */,
-				F874E4722224621100364CAE /* GameViewController.swift */,
-				F874E4F02225DFF700364CAE /* Referee.swift */,
-				F874E4E62225CB3F00364CAE /* Models */,
-				F874E4E52225CB3100364CAE /* Views */,
-				F874E4772224621300364CAE /* Assets.xcassets */,
-				F874E4742224621100364CAE /* Main.storyboard */,
-				F874E4792224621300364CAE /* LaunchScreen.storyboard */,
-				F874E47C2224621300364CAE /* Info.plist */,
+				577B8EA023C1616000417158 /* App */,
+				577B8EA323C1617000417158 /* Core */,
+				577B8EA223C1616900417158 /* Resources */,
+				577B8EA123C1616300417158 /* Environment */,
 			);
 			path = "XO-game";
 			sourceTree = "<group>";
