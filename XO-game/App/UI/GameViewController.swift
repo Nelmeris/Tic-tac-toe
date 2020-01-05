@@ -63,6 +63,8 @@ class GameViewController: UIViewController {
     }
     
     @IBAction func restartButtonTapped(_ sender: UIButton) {
+        Log(.restartGame)
+
         goToFirstState()
         gameboard.clear()
         gameboardView.clear()
