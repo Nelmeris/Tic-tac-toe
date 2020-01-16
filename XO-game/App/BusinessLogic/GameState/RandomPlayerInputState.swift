@@ -1,5 +1,5 @@
 //
-//  PlayerInputState.swift
+//  RandomPlayerInputState.swift
 //  XO-game
 //
 //  Created by Artem Kufaev on 05.01.2020.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public class PlayerInputState: GameState {
+public class RandomPlayerInputState: GameState {
     
     public private(set) var isCompleted = false
     
@@ -18,6 +18,7 @@ public class PlayerInputState: GameState {
     private(set) weak var gameboardView: GameboardView?
     
     public let markViewPrototype: MarkView
+    private var markCount = 0
     
     init(player: Player, markViewPrototype: MarkView, gameViewController: GameViewController, gameboard: Gameboard, gameboardView: GameboardView) {
         self.player = player
@@ -36,6 +37,8 @@ public class PlayerInputState: GameState {
             self.gameViewController?.firstPlayerTurnLabel.isHidden = true
             self.gameViewController?.secondPlayerTurnLabel.isHidden = false
         }
+        gameboardView?.clear()
+        gameboard?.clear()
         self.gameViewController?.winnerLabel.isHidden = true
     }
     
@@ -48,7 +51,14 @@ public class PlayerInputState: GameState {
         
         self.gameboard?.setPlayer(self.player, at: position)
         self.gameboardView?.placeMarkView(self.markViewPrototype.copy(), at: position)
-        self.isCompleted = true
+        
+        markCount += 1
+        if markCount == 5 {
+            self.isCompleted = true
+        }
+        
+        let command = MarkerCommand(player: player, position: position, gameboard: gameboard!, gameboardView: gameboardView, markView: markViewPrototype.copy())
+        Marker.shared.addCommand(command)
     }
     
 }

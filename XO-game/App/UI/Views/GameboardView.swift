@@ -20,7 +20,8 @@ public class GameboardView: UIView {
     // MARK: - Constants
     
     internal struct Constants {
-        static let lineColor: UIColor = .black
+        @available(iOS 13.0, *)
+        static let lineColor: UIColor = .label
         static let lineWidth: CGFloat = 7
     }
     
@@ -50,7 +51,8 @@ public class GameboardView: UIView {
         guard self.canPlaceMarkView(at: position) else { return }
         updateFrame(for: markView, at: position)
         markViewForPosition[position] = markView
-        addSubview(markView)
+        self.addSubview(markView)
+        markView.animateIn(duration: 0.5) { }
     }
     
     public func removeMarkView(at position: GameboardPosition) {
@@ -58,14 +60,20 @@ public class GameboardView: UIView {
             return
         }
         markViewForPosition[position] = nil
-        markView.removeFromSuperview()
+        markView.animateOut(duration: 0.4) {
+            markView.removeFromSuperview()
+        }
     }
     
     // MARK: - UIView
     
     public override func draw(_ rect: CGRect) {
         super.draw(rect)
-        Constants.lineColor.setStroke()
+        if #available(iOS 13.0, *) {
+            Constants.lineColor.setStroke()
+        } else {
+            UIColor.black.setStroke()
+        }
         drawColumnLines(for: rect)
         drawRowLines(for: rect)
     }

@@ -74,6 +74,9 @@ public class MarkView: UIView, Copying {
     
     public final override func layoutSubviews() {
         super.layoutSubviews()
+        if #available(iOS 13.0, *) {
+            lineColor = .label
+        }
         updateLabel()
         updateShapeLayer()
     }
